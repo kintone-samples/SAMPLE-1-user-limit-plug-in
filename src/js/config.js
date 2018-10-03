@@ -1,3 +1,9 @@
+/*
+MIT License
+Copyright (c) 2018 Cybozu
+https://github.com/kintone/SAMPLE-1-user-limit-plug-in/blob/master/LICENSE
+*/
+
 jQuery.noConflict();
 (function($, PLUGIN_ID) {
     'use strict';
