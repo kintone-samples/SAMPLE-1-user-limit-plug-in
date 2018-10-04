@@ -27,7 +27,7 @@
     "en": "1 user limit plug-in"
   },
   "description": {
-    "en": "This sample plug-in limits only one user to be selected in the specified User selection field. When you choose more than 2 users, it displays the error message you set."
+    "en": "This sample plug-in limits only one user to be selected in the specified User Selection field. When you choose 2 or more users, it displays the error message you set."
   },
   "homepage_url": {
     "en": "https://developer.kintone.io/hc/en-us/articles/115002475233"
