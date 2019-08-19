@@ -2,6 +2,6 @@
 /* Copyright (c) 2018 Cybozu */
 /* https://github.com/kintone/SAMPLE-1-user-limit-plug-in/blob/master/LICENSE */
 
-.block {
-	padding: 0 0 20px 0;
+.kintoneplugin-input-text {
+  width: 500px;
 }
