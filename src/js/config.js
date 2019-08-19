@@ -10,7 +10,7 @@ jQuery.noConflict();
   // Get configuration settings
   var CONF = kintone.plugin.app.getConfig(PLUGIN_ID);
   var $form = $('.js-submit-settings');
-  var $cancelButton = $('#js-cancel-button');
+  var $cancelButton = $('.js-cancel-button');
   var $user = $('select[name="js-select-user-field"]');
   var $error = $('input[name="js-error-text"]');
 
