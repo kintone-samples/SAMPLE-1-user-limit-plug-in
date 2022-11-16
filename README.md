@@ -2,7 +2,7 @@
 ## Purpose of the Sample Plug-in
 This sample plug-in is available for educational purposes.  
 Use this plug-in to understand how Kintone plug-ins work, and how they are structured.
-A non-packaged version written with a single JavaScript file can be found here https://developer.kintone.io/hc/en-us/articles/115002475233
+A non-packaged version written with a single JavaScript file can be found here https://kintone.dev/en/tutorials/show-hide-or-restrict-fields/limit-user-selection-fields-to-1-user/
 
 ## What the plug-in does
 This plug-in limits only one user to be selected in the specified User Selection field.
