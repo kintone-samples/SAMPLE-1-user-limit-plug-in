@@ -8,11 +8,11 @@ jQuery.noConflict();
 (function($, PLUGIN_ID) {
   'use strict';
   // Get configuration settings
-  var CONF = kintone.plugin.app.getConfig(PLUGIN_ID);
-  var $form = $('.js-submit-settings');
-  var $cancelButton = $('.js-cancel-button');
-  var $user = $('select[name="js-select-user-field"]');
-  var $error = $('input[name="js-error-text"]');
+  const CONF = kintone.plugin.app.getConfig(PLUGIN_ID);
+  const $form = $('.js-submit-settings');
+  const $cancelButton = $('.js-cancel-button');
+  const $user = $('select[name="js-select-user-field"]');
+  const $error = $('input[name="js-error-text"]');
 
   function escapeHtml(htmlstr) {
     return htmlstr.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -21,17 +21,26 @@ jQuery.noConflict();
 
   function setDropDown() {
     // Retrieve field information, then set dropdown
-    return KintoneConfigHelper.getFields('USER_SELECT').then(function(resp) {
-      resp.forEach(function(field) {
-        var $option = $('<option>');
-
-        $option.attr('value', field.code);
-        $option.text(escapeHtml(field.label));
-        $user.append($option.clone());
-      });
+    return kintone.app.getFormFields().then((resp) => {
+      for (const key in resp) {
+        if (!resp.hasOwnProperty(key)) {
+          continue;
+        }
+        const field = resp[key];
+        const $option = $('<option>');
+        switch (field.type) {
+          case 'USER_SELECT':
+            $option.attr('value', field.code);
+            $option.text(escapeHtml(field.label));
+            $user.append($option.clone());
+            break;
+          default:
+            break;
+        }
+      }
       $user.val(CONF.user_selection);
       $error.val(CONF.error_message);
-    }).catch(function(err) {
+    }).catch((err) => {
       return alert('Failed to retrieve field(s) information');
     });
   }
@@ -41,7 +50,7 @@ jQuery.noConflict();
   // Set input values when 'Save' button is clicked
   $form.on('submit', function(e) {
     e.preventDefault();
-    var config = {};
+    const config = {};
     config.user_selection = $user.val();
     config.error_message = $error.val();
     kintone.plugin.app.setConfig(config, function() {
